@@ -4,3 +4,4 @@ transformers
 torch
 PyDictionary
 requests
+langchain
