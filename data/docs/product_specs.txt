@@ -1,0 +1,10 @@
+Product Name: SmartThermo X200
+
+Features:
+- Temperature accuracy: ±0.1°C
+- Wi-Fi connectivity with mobile app support
+- 2-year hardware warranty
+- Compatible with Alexa and Google Home
+
+Dimensions: 120mm x 75mm x 20mm
+Battery life: Up to 18 months on 2 AA batteries
