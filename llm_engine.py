@@ -1,7 +1,7 @@
 import requests
 import json
 
-OPENROUTER_API_KEY = "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"  # Replace with your actual key or load from env
+OPENROUTER_API_KEY = "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"  # Replace with your actual key or load from env
 MODEL = "thudm/glm-4-9b:free" # or any model on OpenRouter like 'mistralai/mistral-7b-instruct'
 
 def generate_answer(query, chunks):

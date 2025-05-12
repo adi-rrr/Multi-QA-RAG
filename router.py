@@ -1,25 +1,20 @@
-# router.py
+
 
 import re
 from retrieval import get_relevant_chunks
 from llm_engine import generate_answer
 
-# -----------------------------
-# TOOL 1: Calculator
-# -----------------------------
 def use_calculator(query):
     try:
-        # Safe math eval (no builtins, only math symbols)
+       
         expression = re.findall(r"[-+*/().\d\s]+", query)
         expression = ''.join(expression).strip()
         result = eval(expression)
-        return f"🧮 Result: {result}"
+        return f" Result: {result}"
     except Exception as e:
-        return f"❌ Failed to calculate: {str(e)}"
+        return f" Failed to calculate: {str(e)}"
 
-# -----------------------------
-# TOOL 2: Dictionary
-# -----------------------------
+
 from PyDictionary import PyDictionary
 dictionary = PyDictionary()
 
@@ -29,28 +24,26 @@ def use_dictionary(query):
         word = match.group(1).strip()
         meaning = dictionary.meaning(word)
         if meaning:
-            output = [f"📖 {k}: {v[0]}" for k, v in meaning.items()]
+            output = [f" {k}: {v[0]}" for k, v in meaning.items()]
             return '\n'.join(output)
         else:
-            return "❌ Could not find definition."
-    return "❌ Invalid dictionary query."
+            return " Could not find definition."
+    return " Invalid dictionary query."
 
-# -----------------------------
-# ROUTER
-# -----------------------------
+
 def route_query(query):
     query = query.strip().lower()
 
     if any(k in query for k in ["+", "-", "*", "/", "calculate", "sum", "multiply"]):
-        print("🔁 Routed to: Calculator Tool")
+        print(" Routed to: Calculator Tool")
         return use_calculator(query)
 
     elif query.startswith("define "):
-        print("🔁 Routed to: Dictionary Tool")
+        print(" Routed to: Dictionary Tool")
         return use_dictionary(query)
 
     else:
-        print("🔁 Routed to: RAG + LLM")
+        print(" Routed to: RAG + LLM")
         chunks = get_relevant_chunks(query)
         
         return generate_answer(query, chunks)

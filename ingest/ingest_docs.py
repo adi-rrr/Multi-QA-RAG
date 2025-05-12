@@ -1,4 +1,4 @@
-# ingest/ingest_docs.py
+
 
 from langchain.document_loaders import TextLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
@@ -25,11 +25,11 @@ def embed_and_store(chunks):
     embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
     vectordb = FAISS.from_documents(chunks, embeddings)
     vectordb.save_local(INDEX_PATH)
-    print(f"✅ FAISS index saved to {INDEX_PATH}")
+    print(f" FAISS index saved to {INDEX_PATH}")
 
 if __name__ == "__main__":
     raw_docs = load_documents(DATA_PATH)
-    print(f"📄 Loaded {len(raw_docs)} documents.")
+    print(f" Loaded {len(raw_docs)} documents.")
     chunks = chunk_documents(raw_docs)
     print(f"🔹 Split into {len(chunks)} chunks.")
     embed_and_store(chunks)
