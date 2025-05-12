@@ -4,6 +4,9 @@
 This project is a Retrieval-Augmented Generation (RAG) based question-answering assistant, enhanced with a simple agentic workflow. It retrieves relevant document snippets from a local knowledge base and uses a language model to generate natural-language answers. For specific types of queries (e.g. definitions or calculations), it routes to specialized tools.
 
 ---
+## For code walkthrough and overview: 
+(https://drive.google.com/file/d/1wCs5MdIO8Gt3AyFnK9t0PRij-IQqMujW/view?usp=drive_link)
+---
 
 ## 📦 Features
 
